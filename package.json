@@ -4,8 +4,12 @@
   "description": "Sample test automation suite for an ecommerce application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.ts"
   },
   "author": "Sam Spokowski",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^8.15.9"
+  }
 }
