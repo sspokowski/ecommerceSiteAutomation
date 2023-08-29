@@ -1,0 +1,11 @@
+{
+  "name": "ecommercesiteautomation",
+  "version": "1.0.0",
+  "description": "Sample test automation suite for an ecommerce application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Spokowski",
+  "license": "ISC"
+}
