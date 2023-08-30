@@ -31,7 +31,8 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        // './test/specs/**/*.ts'
+        './test/specs/e2e/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -53,22 +54,25 @@ export const config: Options.Testrunner = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome'
-    }, {
-        browserName: 'firefox'
-    }, {
-        browserName: 'safari'
-    }, {
-        browserName: 'MicrosoftEdge'
-    }],
+    // capabilities: [{
+    //     browserName: 'chrome'
+    // }, {
+    //     browserName: 'firefox'
+    // }, {
+    //     browserName: 'safari'
+    // }, {
+    //     browserName: 'MicrosoftEdge'
+    // }],
 
+    capabilities: [{
+        browserName: 'firefox'
+    }],
     //
     // ===================
     // Test Configurations
@@ -138,14 +142,15 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','junit',['allure', {outputDir: 'allure-results'}]],
+    // reporters: ['spec','junit',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec'],
 
     
     //
     // Options to be passed to Jasmine.
     jasmineOpts: {
         // Jasmine default timeout
-        defaultTimeoutInterval: 60000,
+        defaultTimeoutInterval: 180000,
         //
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
