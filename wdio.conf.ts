@@ -31,7 +31,8 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        // './test/specs/**/*.ts'
+        './test/specs/e2e/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -59,16 +60,19 @@ export const config: Options.Testrunner = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome'
-    }, {
-        browserName: 'firefox'
-    }, {
-        browserName: 'safari'
-    }, {
-        browserName: 'MicrosoftEdge'
-    }],
+    // capabilities: [{
+    //     browserName: 'chrome'
+    // }, {
+    //     browserName: 'firefox'
+    // }, {
+    //     browserName: 'safari'
+    // }, {
+    //     browserName: 'MicrosoftEdge'
+    // }],
 
+    capabilities: [{
+        browserName: 'firefox'
+    }],
     //
     // ===================
     // Test Configurations

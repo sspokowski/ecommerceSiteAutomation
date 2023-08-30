@@ -4,13 +4,15 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class SecurePage extends Page {
+class Cart extends Page {
+    public open () {
+        return browser.url('/cart');
+    }
     /**
      * define selectors using getter methods
      */
-    public get flashAlert () {
-        return $('#flash');
-    }
+    public get btnCheckout () { return $('button.proceed-to-checkout') };
+    
 }
 
-export default new SecurePage();
+export default new Cart();
