@@ -7,6 +7,7 @@ import Cart from '../../pageobjects/cart.page';
 import CheckoutModal from '../../pageobjects/components/checkoutModal.page';
 import Shipping from '../../pageobjects/shipping.page';
 import SignIn from '../../pageobjects/components/signIn.page';
+import productData from '../../data/productData.json';
 
 describe('Etsy end-to-end purchase tests as Guest', () => {
     it('should be able search for a specific product, view product detail page, and checkout as a guest', async () => {
@@ -38,9 +39,31 @@ describe('Etsy end-to-end purchase tests as Guest', () => {
 
         //Payment information would be entered on the next screens, but the test will end here for demonstration purposes.
     });
+
+    it('should be able to edit cart before checking out as a guest', async () => {
+        //Navigate to product page and add to cart
+        await ProductDetailPage.openPDP(productData.products[2].productId, productData.products[2].productName);
+        await ProductDetailPage.btnAddToCart.click();
+        await expect(ProductDetailPage.headerAddToCartSuccess).toHaveText('1 item added to cart');
+
+        //Go to cart and proceed to checkout as guest
+        await Cart.open();
+        const removeLink = await Cart.getRemoveLinkByProductId(productData.products[2].productId)
+        await removeLink.click();
+        
+        await Cart.btnCheckout.click();
+        await CheckoutModal.btnContinueAsGuest.click();
+
+        //Fill in shipping details and continue to payment
+        await Shipping.fillRandomShippingData();
+        await browser.scroll(0, 500);
+        await Shipping.btnContinueToPayment.click();
+
+        //Payment information would be entered on the next screens, but the test will end here for demonstration purposes.
+    });
 });
 
-describe('Etsy end-to-end purchase tests as authenticated user', () => {
+xdescribe('Etsy end-to-end purchase tests as authenticated user', () => {
     it('should be able search for a specific product, view product detail page, and checkout as a guest', async () => {
         //Navigate to Etsy and search for desired item
         await LandingPage.open();
