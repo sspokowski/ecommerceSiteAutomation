@@ -21,9 +21,9 @@ This project follows the popular Page Object Model for UI automation.  It treats
 ```
 
 ## To Dos:
-- [] Integrate [Etsy Public API](https://developers.etsy.com/documentation/) to abstract repetive steps such as setting test state
-- [] Add assertions for all //TODO comments
-- [] Add configuration to run test on Browserstack
+- [ ] Integrate [Etsy Public API](https://developers.etsy.com/documentation/) to abstract repetive steps such as setting test state
+- [ ] Add assertions for all //TODO comments
+- [ ] Add configuration to run test on Browserstack
 
 
 ## Getting started
