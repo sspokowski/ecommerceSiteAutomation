@@ -5,6 +5,11 @@ import Page from './page';
  * sub page containing specific selectors and methods for a specific page
  */
 class ProductDetailPage extends Page {
+
+    public openPDP (productId: string, productName: string) {
+        return browser.url(`/listing/${productId}/${productName}`);
+    }
+
     /**
      * define selectors using getter methods
      */
