@@ -12,8 +12,19 @@ class Cart extends Page {
      * define selectors using getter methods
      */
     public get btnCheckout () { return $('button.proceed-to-checkout') };
-    public get spanSubtotal () { return $('table[summary="This is the order summary, it contains costs for the products you have put in your cart"]').$$('span.currency-value')[2] };
+    public get spanSubtotal () { return $('table[summary="This is the order summary, it contains costs for the products you have put in your cart"]').$$('span.currency-value')[0] };
+    public get spanSubtotalSale () { return $('table[summary="This is the order summary, it contains costs for the products you have put in your cart"]').$$('span.currency-value')[2] };
     
+    public async getQuantitySelectorByProductId (product:string) {
+        const container = await $(`li[data-listing-id="${product}"]`);
+        return container.$('select[name="listing-quantity"]');
+    }
+
+    public async getRemoveLinkByProductId (product:string) {
+        const container = await $(`li[data-listing-id="${product}"]`);
+        return container.$('a[aria-label="Remove listing"]');
+    }
+
     //This is is not ideal, and I would suspect it is prone to breaking when developers make changes
     //I would work with the software team to make sure that these modals are more easily accessible by direct reference
     public async calculateSubTotal (products:string[]) {

@@ -7,14 +7,17 @@ This is a sample project that includes some automated UI tests for the eCommerce
 This project follows the popular Page Object Model for UI automation.  It treats individual web pages and components of pages (e.g., navigation bars, modal dialogues, etc) as programmatic objects that can be reused across the entire test suite.
 
 ```
-.
-├── test                             //root
+.                                    //root - all config files are in here
+├── test                             //folder with all of the relevant code
 │   ├── data                         //json data files 
 │   ├── pageobjects                  //page object repositories
 │   |  └── components                //smaller components
 │   ├── specs                        //test scripts
 |   |  ├── e2e                       //end-to-end tests
 │   |  └── features                  //modular tests of specific features or pages
+  .
+  .                                  
+  .
 ```
 
 ## Getting started
